@@ -5,7 +5,8 @@
  * _printf - function that produces output according to a format
  * @format: character string containing zero or more directives
  *
- * Return: the number of characters printed (excluding the null byte used to end output to strings)
+ * Return: the number of characters printed (excluding...
+ * the null byte used to end output to strings)
  */
 int _printf(const char *format, ...)
 {
@@ -16,7 +17,7 @@ va_start(args, format);
 len = process_format(format, args);
 va_end(args);
 
-return len;
+return (len);
 }
 
 /**
@@ -45,7 +46,7 @@ len++;
 i++;
 }
 
-return len;
+return (len);
 }
 
 /**
@@ -76,7 +77,7 @@ default:
 return (-1);
 }
 
-return len;
+return (len);
 }
 
 /**
@@ -96,5 +97,5 @@ i++;
 len++;
 }
 
-return len;
+return (len);
 }
