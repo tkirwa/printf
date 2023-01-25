@@ -1,111 +1,70 @@
-#include <stdarg.h>
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _printf - function that produces output according to a format
- * @format: character string containing zero or more directives
- *
- * Return: the number of characters printed (excluding...
- * the null byte used to end output to strings)
- */
+* _printf - a custom implementation of the printf function
+* @format: string that contains the directives for output
+*
+* Return: the number of characters printed (excluding the null byte)
+*/
 int _printf(const char *format, ...)
 {
+int count = 0;
 va_list args;
-int len = 0;
 
 va_start(args, format);
-len = process_format(format, args);
-va_end(args);
-
-return (len);
+for (; *format; format++)
+{
+if (*format == '%')
+{
+format++;
+switch (*format)
+{
+case 'c':
+putchar(va_arg(args, int));
+count++;
+break;
+case 's':
+count += fputs(va_arg(args, char *), stdout);
+break;
+case 'd':
+case 'i':
+count += _putnbr(va_arg(args, int));
+break;
+case 'u':
+count += _putunbr(va_arg(args, unsigned int));
+break;
+case 'o':
+count += _putoct(va_arg(args, unsigned int));
+break;
+case 'x':
+count += _puthex(va_arg(args, unsigned int), 0);
+break;
+case 'X':
+count += _puthex(va_arg(args, unsigned int), 1);
+break;
+case 'p':
+count += _putaddr(va_arg(args, void *));
+break;
+case '%':
+putchar('%');
+count++;
+break;
+default:
+putchar('%');
+putchar(*format);
+count += 2;
+break;
 }
-
-/**
- * process_format - process the format string and print output
- * @format: character string containing zero or more directives
- * @args: variable argument list
- *
- * Return: the number of characters printed
- */
-int process_format(const char *format, va_list args)
-{
-int i = 0, len = 0;
-
-while (format[i])
-{
-if (format[i] == '%')
-{
-i++;
-len += handle_conversion(format[i], args);
 }
 else
 {
-_putchar(format[i]);
-len++;
+putchar(*format);
+count++;
 }
-i++;
 }
-return (len);
-}
-
-/**
-* handle_conversion - handle the specific conversion specifier
-* @conversion: conversion specifier
-* @args: variable argument list
-*
-* Return: the number of characters printed
-*/
-int handle_conversion(char conversion, va_list args)
-{
-int len = 0;
-
-switch (conversion)
-{
-case 'c':
-_putchar(va_arg(args, int));
-len++;
-break;
-case 's':
-len += print_string(va_arg(args, char *));
-break;
-case '%':
-_putchar('%');
-len++;
-break;
-default:
-_putchar('%');
-_putchar(conversion);
-len += 2;
-break;
-}
-
-return (len);
-}
-
-/**
-* print_string - print a given string
-* @str: string to be printed
-* Return: the number of characters printed
-*/
-int print_string(char *str)
-{
-int len = 0, i;
-if (!str)
-{
-_putchar('(');
-_putchar('n');
-_putchar('u');
-_putchar('l');
-_putchar('l');
-_putchar(')');
-return (6);
-}
-
-for (i = 0; str[i]; i++)
-{
-_putchar(str[i]);
-len++;
-}
-
-return (len);
+va_end(args);
+return (count);
 }

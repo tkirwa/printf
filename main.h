@@ -2,9 +2,12 @@
 #define MAIN_H
 
 int _printf(const char *format, ...);
-int process_format(const char *format, va_list args);
-int handle_conversion(char conversion, va_list args);
-int print_string(char *str);
-int _putchar(char c);
+int _putunbr(unsigned int n);
+int _putnbr(int n);
+int _putoct(unsigned int n);
+int _puthex(unsigned int n, int upper);
+/*int _putaddr(void *p);*/
+int _putaddr(void *p);
 
-#endif /* MAIN_H */
+
+#endif
