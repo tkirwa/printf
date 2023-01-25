@@ -2,12 +2,12 @@
 #include "main.h"
 
 /**
-* _printf - function that produces output according to a format
-* @format: character string containing zero or more directives
-*
-* Return: the number of characters printed (excluding...
-* the null byte used to end output to strings)
-*/
+ * _printf - function that produces output according to a format
+ * @format: character string containing zero or more directives
+ *
+ * Return: the number of characters printed (excluding...
+ * the null byte used to end output to strings)
+ */
 int _printf(const char *format, ...)
 {
 va_list args;
@@ -21,12 +21,12 @@ return (len);
 }
 
 /**
-* process_format - process the format string and print output
-* @format: character string containing zero or more directives
-* @args: variable argument list
-*
-* Return: the number of characters printed
-*/
+ * process_format - process the format string and print output
+ * @format: character string containing zero or more directives
+ * @args: variable argument list
+ *
+ * Return: the number of characters printed
+ */
 int process_format(const char *format, va_list args)
 {
 int i = 0, len = 0;
@@ -66,7 +66,7 @@ _putchar(va_arg(args, int));
 len++;
 break;
 case 's':
-len += print_string(va_arg(args, char*));
+len += print_string(va_arg(args, char *));
 break;
 case '%':
 _putchar('%');
@@ -85,7 +85,6 @@ return (len);
 /**
 * print_string - print a given string
 * @str: string to be printed
-*
 * Return: the number of characters printed
 */
 int print_string(char *str)
