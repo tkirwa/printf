@@ -30,10 +30,10 @@ return (fputs(str, stdout));
  *
  * Return: number of characters printed
  */
-/*int print_int(int i)*/
-/*{*/
-/*return (_putnbr(i));*/
-/*}*/
+int print_int(int i)
+{
+return (_putnbr(i));
+}
 
 /**
  * print_unsigned - prints an unsigned integer
