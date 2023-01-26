@@ -96,5 +96,5 @@ return (count);
 int _putaddr(void *ptr)
 {
 unsigned long address = (unsigned long)ptr;
-return (printf("0x%llx", address));
+return (printf("0x%lx", address));
 }
