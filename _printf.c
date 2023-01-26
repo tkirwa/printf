@@ -1,8 +1,7 @@
-#include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "main.h"
 /**
 * _printf - a custom implementation of the printf function
 * @format: string that contains the directives for output
@@ -23,30 +22,29 @@ format++;
 switch (*format)
 {
 case 'c':
-putchar(va_arg(args, int));
-count++;
+count += print_char(va_arg(args, int));
 break;
 case 's':
-count += fputs(va_arg(args, char *), stdout);
+count += print_string(va_arg(args, char*));
 break;
 case 'd':
 case 'i':
-count += _putnbr(va_arg(args, int));
+count += print_int(va_arg(args, int));
 break;
 case 'u':
 count += _putunbr(va_arg(args, unsigned int));
 break;
 case 'o':
-count += _putoct(va_arg(args, unsigned int));
+count += print_octal(va_arg(args, unsigned int));
 break;
 case 'x':
-count += _puthex(va_arg(args, unsigned int), 0);
+count += print_hex(va_arg(args, unsigned int), 0);
 break;
 case 'X':
-count += _puthex(va_arg(args, unsigned int), 1);
+count += print_hex(va_arg(args, unsigned int), 1);
 break;
 case 'p':
-count += _putaddr(va_arg(args, void *));
+count += print_pointer(va_arg(args, void*));
 break;
 case '%':
 putchar('%');
