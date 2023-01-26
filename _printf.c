@@ -53,33 +53,12 @@ break;
 case 'b':
 count += print_binary(va_arg(args, unsigned int));
 break;
-case 'S':
-count += print_non_printable_string(va_arg(args, char *));
-break;
-
 default:
 putchar('%');
 putchar(*format);
 count += 2;
 break;
 }
-}
-else if (*format == '+')
-{
-putchar('+');
-count++;
-format++;
-}
-else if (*format == ' ')
-{
-putchar(' ');
-count++;
-format++;
-}
-else if (*format == '#')
-{
-/* handle alternate forms */
-format++;
 }
 else
 {
