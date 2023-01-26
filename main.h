@@ -21,15 +21,4 @@ int print_pointer(void *);
 int print_binary(unsigned int n);
 
 
-
-
-
-/*int _puts(char *string);*/
-/*int print_binary(unsigned int n);*/
-
-
-/*int _puthex(unsigned int n, int upper);*/
-/*int _putaddr(void *p);*/
-
-
 #endif
