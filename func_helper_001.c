@@ -111,9 +111,13 @@ int print_string(va_list types, char buffer[],
 	if (width > length)
 
 	{
+<<<<<<< HEAD
 
 		if (flags & F_MINUS)
 
+=======
+		if (flags & F_MINUS)
+>>>>>>> f205e7ab5fd77ad8e13c3d2463bdcd70a76b59be
 		{
 
 			write(1, &str[0], length);
@@ -151,6 +155,7 @@ int print_string(va_list types, char buffer[],
 /************************* PRINT PERCENT SIGN *************************/
 
 /**
+<<<<<<< HEAD
 
  * print_percent - Prints a percent sign
 
@@ -170,6 +175,17 @@ int print_string(va_list types, char buffer[],
 
  */
 
+=======
+ * print_percent - Prints a percent sign
+ * @types: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width.
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
+ */
+>>>>>>> f205e7ab5fd77ad8e13c3d2463bdcd70a76b59be
 int print_percent(va_list types, char buffer[],
 
 	int flags, int width, int precision, int size)
