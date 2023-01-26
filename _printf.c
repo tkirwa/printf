@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
             case 'S':
                 count += print_non_printable_string(va_arg(args, char *));
                 break;
-
+            
             default:
                 putchar('%');
                 putchar(*format);
