@@ -27,10 +27,10 @@ break;
 case 's':
 count += print_string(va_arg(args, char*));
 break;
-case 'd':
-case 'i':
-count += print_int(va_arg(args, int));
-break;
+/*case 'd':*/
+/*case 'i':*/
+/*count += print_int(va_arg(args, int));*/
+/*break;*/
 case 'u':
 count += _putunbr(va_arg(args, unsigned int));
 break;
