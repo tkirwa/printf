@@ -19,6 +19,7 @@ int print_octal(unsigned int);
 int print_hex(unsigned int, int);
 int print_pointer(void *);
 int print_binary(unsigned int n);
+int  _printf_buffer(const char *format, ...);
 
 
 #endif
