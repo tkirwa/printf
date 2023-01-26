@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include "main.h"
 
+/**
+ * _printf_buffer - a custom implementation of the printf function
+ * @format: string that contains the directives for output
+ *
+ * Return: the number of characters printed (excluding the null byte)
+ */
+
 int  _printf_buffer(const char *format, ...)
 {
     int count = 0;
