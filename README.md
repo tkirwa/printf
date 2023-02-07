@@ -2,5 +2,6 @@
 #### C Programming - Group Project
 
 ------------
-Collaborators
-
+Collaborators | Github Profiles
+1. [Okinyo Ogutu](https://github.com/okiogutu "Okinyo Ogutu")
+2. [Tonny Kirwa](https://github.com/tkirwa "Tonny Kirwa")
